@@ -1,3 +1,5 @@
+SET GLOBAL general_log='ON';
+
 DROP TABLE IF EXISTS `event_streams`;
 CREATE TABLE `event_streams` (
   `no` bigint(20) NOT NULL AUTO_INCREMENT,

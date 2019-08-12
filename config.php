@@ -25,7 +25,7 @@ namespace {
 
     include "./vendor/autoload.php";
 
-    $pdo = new PDO('mysql:dbname=prooph;host=localhost', 'root', '');
+    $pdo = new PDO('mysql:dbname=prooph;host=database', 'root', '');
     $eventStore = new MySqlEventStore(new FQCNMessageFactory(), $pdo, new MySqlAggregateStreamStrategy());
     $eventEmitter = new ProophActionEventEmitter();
     $eventStore = new ActionEventEmitterEventStore($eventStore, $eventEmitter);
@@ -51,5 +51,6 @@ namespace {
     $eventRouter->route(UserRegistered::class)->to([$userProjector, 'onUserRegistered']);
     $eventRouter->attachToMessageBus($eventBus);
 
-    $userId = '20';
+    // $userId = '20';
+    $userId = '21';
 }
